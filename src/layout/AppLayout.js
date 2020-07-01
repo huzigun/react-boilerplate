@@ -1,15 +1,24 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Row, Col } from 'antd';
+import HeaderWrapper from '../components/common/HeaderWrapper';
+import SideBar from '../components/common/SideBar';
+
+import styled from '@emotion/styled';
+
+const ContentWrapper = styled(Col)`
+  padding: 0 3rem;
+`;
 
 const AppLayout = ({ children }) => {
   return (
     <div id="app">
-      <header style={{ marginBottom: '20px', borderBottom: '1px solid #dbdbdb' }}>
-        <Link to="/">홈</Link>
-        <Link to="/channel">채널</Link>
-        <Link to="/notice">공지사항</Link>
-      </header>
-      {children}
+      <HeaderWrapper />
+      <Row style={{ paddingTop: '20px', height: '100%' }}>
+        <SideBar />
+        <ContentWrapper xs={24} md={18} xl={19} xxl={20}>
+          {children}
+        </ContentWrapper>
+      </Row>
     </div>
   );
 };
