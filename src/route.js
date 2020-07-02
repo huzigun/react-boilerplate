@@ -6,8 +6,8 @@ import ChannelPage from './pages/channel';
 
 const routes = [
   { path: '/', name: 'main', exact: true, component: MainPage },
-  { path: '/channel', name: 'channel', component: ChannelPage },
-  { path: '/notice', name: 'notice', component: NoticePage },
+  { path: '/channel', name: '채널', component: ChannelPage },
+  { path: '/notice', name: '공지사항', component: NoticePage },
 ];
 
 export default routes;

@@ -1,23 +1,19 @@
-import React from 'react';
 import { Row, Col } from 'antd';
 import HeaderWrapper from '../components/common/HeaderWrapper';
 import SideBar from '../components/common/SideBar';
 
-import styled from '@emotion/styled';
-
-const ContentWrapper = styled(Col)`
-  padding: 0 3rem;
-`;
+/** @jsx jsx */
+import { jsx } from '@emotion/core';
 
 const AppLayout = ({ children }) => {
   return (
     <div id="app">
       <HeaderWrapper />
-      <Row style={{ paddingTop: '20px', height: '100%' }}>
+      <Row css={{ paddingTop: '20px', height: '100%' }}>
         <SideBar />
-        <ContentWrapper xs={24} md={18} xl={19} xxl={20}>
+        <Col xs={24} md={18} xl={19} xxl={20} css={{ padding: '0 3rem' }}>
           {children}
-        </ContentWrapper>
+        </Col>
       </Row>
     </div>
   );

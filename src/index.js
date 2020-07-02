@@ -13,8 +13,6 @@ import rootReducer from './reducers';
 import rootSaga from './sagas';
 
 import dotenv from 'dotenv';
-// const dotenv = require('dotenv');
-
 dotenv.config();
 
 const customHistory = createBrowserHistory();
@@ -25,8 +23,6 @@ const sagaMiddleware = createSagaMiddleware({
   },
 });
 const middlewares = [sagaMiddleware];
-
-console.log(process.env);
 
 const enhancer =
   process.env.NODE_ENV === 'production'
