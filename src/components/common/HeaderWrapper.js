@@ -39,24 +39,12 @@ const HeaderWrapper = ({ history }) => {
         <div className="search-box">
           <Input placeholder="Basic usage" allowClear className="search-input" size="small" />
           <div className="spacer"></div>
-          {me === null ? (
-            <Button
-              onClick={() => {
-                dispatch({
-                  type: 'LOG_IN_REQUEST',
-                  data: { id: 'huzigun' },
-                });
-              }}
-            >
-              로그인
-            </Button>
-          ) : (
+          {me && (
             <Button
               onClick={() => {
                 dispatch({
                   type: 'LOG_OUT_REQUEST',
                 });
-                history.push('/');
               }}
             >
               로그아웃

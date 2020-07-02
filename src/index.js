@@ -7,15 +7,26 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { Provider } from 'react-redux';
+import { createBrowserHistory } from 'history';
 
 import rootReducer from './reducers';
 import rootSaga from './sagas';
 
-const sagaMiddleware = createSagaMiddleware();
+import dotenv from 'dotenv';
+// const dotenv = require('dotenv');
 
-// const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
+dotenv.config();
 
+const customHistory = createBrowserHistory();
+
+const sagaMiddleware = createSagaMiddleware({
+  context: {
+    history: customHistory,
+  },
+});
 const middlewares = [sagaMiddleware];
+
+console.log(process.env);
 
 const enhancer =
   process.env.NODE_ENV === 'production'

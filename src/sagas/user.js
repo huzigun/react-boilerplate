@@ -1,4 +1,4 @@
-import { all, fork, takeLatest, delay, put } from 'redux-saga/effects';
+import { all, fork, takeLatest, delay, put, getContext } from 'redux-saga/effects';
 
 function* login(action) {
   try {
@@ -25,6 +25,9 @@ function* logout(action) {
       type: 'LOG_OUT_SUCCESS',
       data: action.data,
     });
+
+    const history = yield getContext('history');
+    history.push('/');
   } catch (err) {
     yield put({
       type: 'LOG_OUT_FAILURE',

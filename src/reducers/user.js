@@ -1,5 +1,5 @@
 const initailState = {
-  me: null,
+  me: null
 };
 
 const reducer = (state = initailState, action) => {
